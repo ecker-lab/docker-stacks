@@ -4,7 +4,7 @@
 # Ubuntu 20.04 (focal)
 # https://hub.docker.com/_/ubuntu/?tab=tags&name=focal
 # OS/ARCH: linux/amd64
-ARG ROOT_CONTAINER=nvidia/cuda:11.0-cudnn8-devel-ubuntu18.04
+ARG ROOT_CONTAINER=nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04
 
 ARG BASE_CONTAINER=$ROOT_CONTAINER
 FROM $BASE_CONTAINER
@@ -93,7 +93,7 @@ RUN echo "auth requisite pam_deny.so" >> /etc/pam.d/su && \
     fix-permissions $CONDA_DIR
 
 USER $NB_UID
-ARG PYTHON_VERSION=default
+ARG PYTHON_VERSION=3.7
 
 # Setup work directory for backward-compatibility
 RUN mkdir "/home/$NB_USER/work" && \
