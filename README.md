@@ -1,3 +1,23 @@
+# Introduction
+
+We use this is a fork of the Jupyter Docker Stacks repo to build Jupyter Docker images with Nvidia CUDA support. We use those images as a basis to build Docker images for all of our development with PyTorch, Tensorflow, etc. (see https://github.com/ecker-lab/docker).
+
+# Contributing
+
+Please contribute by opening a pull request. 
+
+
+## Ecker lab members
+
+If you want to upgrade the CUDA, Python or Jupyter Lab version, pull the according commit from https://github.com/jupyter/docker-stacks into our fork (https://github.com/ecker-lab/docker-stacks). Modify the Dockerfile in base-notebook to derive from the nvidia image with the desired CUDA version (e.g. nvidia/cuda:11.0-cudnn8-devel-ubuntu18.04). Please use a LTS release of Ubuntu. If you need to use a Python version newer than the one provided by Jupyter Docker Stacks, modify the Dockerfile accordingly. Then, build the image locally and push it to https://hub.docker.com/r/eckerlabdocker/docker-stacks with a tag following the usual naming scheme. Commit and push the according Dockerfile to this repo's main branch, tagging it with the same tag that you used for the Docker image on Docker Hub (`git tag -a tagname -m "Commit message"` and `git push --tag`).
+
+If you want to upgrade packages such as PyTorch, Tensorflow or DataJoint, modify the Dockerimage in this repo (https://github.com/ecker-lab/docker) and push it - tagged with the usual naming scheme - to https://hub.docker.com/repository/docker/eckerlabdocker/docker. Also, commit and push the according Dockerfile to this repo's main branch, tagging it with the same tag that you used for the Docker image on Docker Hub.
+
+
+
+# Readme from Jupyter Docker Stacks
+
+
 [![Discourse badge](https://img.shields.io/discourse/https/discourse.jupyter.org/users.svg?color=%23f37626)](https://discourse.jupyter.org/c/questions "Jupyter Discourse Q&A")
 [![Read the Docs badge](https://img.shields.io/readthedocs/jupyter-docker-stacks.svg)](https://jupyter-docker-stacks.readthedocs.io/en/latest/ "Documentation build status")
 [![DockerHub badge](https://images.microbadger.com/badges/version/jupyter/base-notebook.svg)](https://microbadger.com/images/jupyter/base-notebook "Recent tag/version of jupyter/base-notebook")
